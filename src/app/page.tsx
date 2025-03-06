@@ -1,101 +1,306 @@
-import Image from "next/image";
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { ArrowRight, Leaf, Recycle, Clock, Users, Hammer, ChevronDown } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-screen w-full overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/visualisation2.jpg"
+            alt="3D printed wood structure in forest setting"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">TreeD</h1>
+          <h2 className="text-2xl md:text-3xl font-medium text-white/90 mb-8">
+            3D Wood Printing for the Built Environment
+          </h2>
+          <p className="text-lg md:text-xl text-white/80 max-w-2xl mb-8">
+            Providing architects and the construction industry the freedom to design without limitations through
+            innovative 3D printable wooden paste technology.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button size="lg" className="bg-amber-700 hover:bg-amber-800 text-white cursor-pointer">
+              Learn More <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 cursor-pointer">
+              Our Team
+            </Button>
+          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+          <ChevronDown className="h-8 w-8 text-white" />
+        </div>
+      </section>
+
+      {/* Vision Section */}
+      <section className="py-20 bg-amber-50">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="md:w-1/2">
+              <h2 className="text-3xl font-bold text-amber-900 mb-6">Our Long-Term Vision</h2>
+              <p className="text-lg text-amber-950/80 mb-6">
+                Our project aims to provide architects and the construction industry the freedom to design without
+                limitations. Here at TreeD, we aim to make the creation of unique, non-traditional wooden parts possible
+                through the development of a 3D printable wooden paste, an elaborated building technology!
+              </p>
+              <h3 className="text-2xl font-bold text-amber-900 mb-4">Problem Statement</h3>
+              <p className="text-lg text-amber-950/80">
+                The construction industry is currently limited by traditional timber and requires a solution to unlock
+                new design possibilities of organic shapes; therefore, an unconventional building technology needs to be
+                developed. We believe that our project could be the key solution to this problem: 3D printed wood!
+              </p>
+            </div>
+            <div className="md:w-1/2">
+              <div className="relative rounded-xl overflow-hidden shadow-xl">
+                <Image
+                  src="/visualisation1.jpg"
+                  alt="3D printed wood structure visualization"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Goals Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-amber-900 mb-12 text-center">Our Goals</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="bg-amber-50 border-amber-200">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <span className="bg-amber-100 p-2 rounded-full">1</span>
+                  Material Development
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>Develop a 3D printable wood-based paste, structurally sound when extruded</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-amber-50 border-amber-200">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <span className="bg-amber-100 p-2 rounded-full">2</span>
+                  Design Creation
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>Create a design of a 3D structure, printable using our paste</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-amber-50 border-amber-200">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <span className="bg-amber-100 p-2 rounded-full">3</span>
+                  Large Scale Printing
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>Print it large scale to showcase this building technology</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-amber-800 text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">Side Benefits</h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-amber-700 p-4 rounded-full mb-4">
+                <Leaf className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-medium mb-2">Sustainable</h3>
+              <p>More sustainable building material for eco-friendly construction</p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-amber-700 p-4 rounded-full mb-4">
+                <Clock className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-medium mb-2">Cost Efficient</h3>
+              <p>Benefit of reduced labor costs and construction risks</p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-amber-700 p-4 rounded-full mb-4">
+                <Hammer className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-medium mb-2">Automated</h3>
+              <p>Automatization of processes for efficient production</p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-amber-700 p-4 rounded-full mb-4">
+                <Recycle className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-medium mb-2">Waste Reduction</h3>
+              <p>Minimizes material waste compared to traditional methods</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-amber-900 mb-12 text-center">Our Process</h2>
+
+          <Tabs defaultValue="material" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 mb-8">
+              <TabsTrigger value="material">Material Development</TabsTrigger>
+              <TabsTrigger value="printer">Printer Adjustments</TabsTrigger>
+            </TabsList>
+            <TabsContent value="material" className="p-4 bg-amber-50 rounded-lg">
+              <div className="flex flex-col md:flex-row gap-8">
+                <div className="md:w-1/2">
+                  <h3 className="text-2xl font-bold text-amber-900 mb-4">Material Development Process</h3>
+                  <p className="text-lg text-amber-950/80">
+                    Material development consists of many stages and processes, however it highly depends on iterative
+                    approach: preparing material, testing and analysing its properties in various states (in fluid to
+                    know its extrusion properties and in solid to know its structural ones), as well as drawing
+                    conclusions and creating new iterations of the materials.
+                  </p>
+                </div>
+                <div className="md:w-1/2 bg-amber-100 p-6 rounded-lg">
+                  <h4 className="text-xl font-semibold text-amber-900 mb-3">Key Stages:</h4>
+                  <ul className="space-y-2 text-amber-950/80">
+                    <li className="flex items-start gap-2">
+                      <span className="bg-amber-200 text-amber-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        1
+                      </span>
+                      <span>Material composition research and selection</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="bg-amber-200 text-amber-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        2
+                      </span>
+                      <span>Testing extrusion properties in fluid state</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="bg-amber-200 text-amber-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        3
+                      </span>
+                      <span>Analyzing structural properties in solid state</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="bg-amber-200 text-amber-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        4
+                      </span>
+                      <span>Iterative improvements based on test results</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </TabsContent>
+            <TabsContent value="printer" className="p-4 bg-amber-50 rounded-lg">
+              <div className="flex flex-col md:flex-row gap-8">
+                <div className="md:w-1/2">
+                  <h3 className="text-2xl font-bold text-amber-900 mb-4">Printer Adjustments</h3>
+                  <p className="text-lg text-amber-950/80">
+                    Willing to fully automatise printing process, the extrusion must also be automatised. We did it
+                    through an addition of an extra motor, connecting to the extruder part, allowing the material
+                    extrusion happen not manually and controlling through code commands.
+                  </p>
+                </div>
+                <div className="md:w-1/2 bg-amber-100 p-6 rounded-lg">
+                  <h4 className="text-xl font-semibold text-amber-900 mb-3">Key Modifications:</h4>
+                  <ul className="space-y-2 text-amber-950/80">
+                    <li className="flex items-start gap-2">
+                      <span className="bg-amber-200 text-amber-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        1
+                      </span>
+                      <span>Addition of extra motor for automated extrusion</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="bg-amber-200 text-amber-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        2
+                      </span>
+                      <span>Custom extruder design for wood-based paste</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="bg-amber-200 text-amber-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        3
+                      </span>
+                      <span>Software integration for precise control</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="bg-amber-200 text-amber-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        4
+                      </span>
+                      <span>Calibration for optimal extrusion parameters</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-20 bg-amber-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-amber-900 mb-12 text-center">Our Team</h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {["Ana Cirligeanu", "Maria Nicorescu", "Mazen Ahmed", "Rehaf El Rekabija", "Signe Banga"].map(
+              (member, index) => (
+                <Card key={index} className="bg-white border-amber-200">
+                  <CardHeader className="pb-2">
+                    <div className="w-full aspect-square bg-amber-100 rounded-md mb-3 flex items-center justify-center">
+                      <Users className="h-12 w-12 text-amber-800/60" />
+                    </div>
+                    <CardTitle className="text-center text-lg">{member}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center text-sm text-muted-foreground">Honor Student at TUE</CardContent>
+                </Card>
+              ),
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-amber-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-6 md:mb-0">
+              <h2 className="text-2xl font-bold mb-2">TreeD</h2>
+              <p className="text-amber-100">3D Wood Printing for the Built Environment</p>
+            </div>
+            <div className="flex flex-col items-center md:items-end">
+              <p className="text-amber-100 mb-2">Eindhoven University of Technology</p>
+              <p className="text-amber-100">Honor Student Team Project</p>
+            </div>
+          </div>
+          <div className="border-t border-amber-700 mt-8 pt-8 text-center text-amber-200">
+            <p>&copy; {new Date().getFullYear()} TreeD Team. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }

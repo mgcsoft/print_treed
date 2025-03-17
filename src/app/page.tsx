@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowRight, Leaf, Recycle, Clock, Users, Hammer, ChevronDown } from "lucide-react"
+import { ArrowRight, Leaf, Recycle, Clock, Hammer, ChevronDown } from "lucide-react"
 
 export default function Home() {
   return (
@@ -266,14 +266,18 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-amber-900 mb-12 text-center">Our Team</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {["Ana Cirligeanu", "Maria Nicorescu", "Mazen Ahmed", "Rehaf El Rekabija", "Signe Banga"].map(
+            {[{ name: "Ana Cirligeanu", image: "/Ana.jpeg" },
+            { name: "Maria Nicorescu", image: "/Maria.jpeg" },
+            { name: "Mazen Ahmed", image: "/Mazen.jpeg" },
+            { name: "Rehaf El Rekabija", image: "/Rehaf.jpeg" },
+            { name: "Signe Banga", image: "/Signe.jpeg" }].map(
               (member, index) => (
-                <Card key={index} className="bg-white border-amber-200">
+                <Card key={index} className="bg-white border-amber-200 shadow-none">
                   <CardHeader className="pb-2">
-                    <div className="w-full aspect-square bg-amber-100 rounded-md mb-3 flex items-center justify-center">
-                      <Users className="h-12 w-12 text-amber-800/60" />
+                    <div className="w-full aspect-square rounded-md mb-3 flex items-center justify-center">
+                      <Image src={member.image} className="rounded-full" alt={member.name} width={250} height={250} />
                     </div>
-                    <CardTitle className="text-center text-lg">{member}</CardTitle>
+                    <CardTitle className="text-center text-lg">{member.name}</CardTitle>
                   </CardHeader>
                   <CardContent className="text-center text-sm text-muted-foreground">Honor Student at TUE</CardContent>
                 </Card>
